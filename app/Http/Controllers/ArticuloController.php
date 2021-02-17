@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use \Illuminate\Http\Response;
 use App\Models\Articulo;
 
 class ArticuloController extends Controller
@@ -17,7 +17,7 @@ class ArticuloController extends Controller
     public function index()
     {
 
-        //return Articulo::all();
+        return Articulo::all();
         return DB::table('articulos_tbl')
             ->join('categorias_tbl', 'articulos_tbl.categoria_id', '=', 'categorias_tbl.id')
             ->join('marcas_tbl', 'articulos_tbl.marca_id', '=', 'marcas_tbl.id')

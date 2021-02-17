@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Route::post('login', [UserController::class, 'login']);
 
 
 Route::resource('articulo', 'ArticuloController');
-
+//Route::post('articulo', [ArticuloController::class, 'store']);
 
 Route::resource('user', 'UserController');
 Route::resource('rol', 'RolController');
