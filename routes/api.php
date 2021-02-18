@@ -23,15 +23,40 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [UserController::class, 'login']);
 
 
-
+/*Crear  si
+Eliminar no
+Mostrar un registro no */
 Route::resource('articulo', 'ArticuloController');
-//Route::post('articulo', [ArticuloController::class, 'store']);
 
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('user', 'UserController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('rol', 'RolController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('marca', 'MarcaController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('categoria', 'CategoriaController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('ubicacion', 'UbicacionController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('tipo', 'TipoController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('proveedor', 'ProveedorController');
+/*Crear  no
+Eliminar no
+Mostrar un registro no */
 Route::resource('status', 'StatusController');
