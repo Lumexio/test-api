@@ -10,4 +10,14 @@ class Status extends Model
     protected $table = 'status_tbl';
     protected $primaryKey = 'id';
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nombre_status',
+
+    ];
 }

@@ -10,4 +10,14 @@ class Proveedor extends Model
     protected $table = 'proveedores_tbl';
     protected $primaryKey = 'id';
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nombre_proveedor',
+
+    ];
 }

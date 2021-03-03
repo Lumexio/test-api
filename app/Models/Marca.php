@@ -10,4 +10,16 @@ class Marca extends Model
     protected $table = 'marcas_tbl';
     protected $primaryKey = 'id';
     use HasFactory;
+
+
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nombre_marca',
+
+    ];
 }
