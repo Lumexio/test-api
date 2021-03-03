@@ -28,6 +28,7 @@ Eliminar no
 Mostrar un registro no */
 Route::resource('articulo', 'ArticuloController');
 
+
 /*Crear  no
 Eliminar no
 Mostrar un registro no */

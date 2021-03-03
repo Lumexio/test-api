@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use \Illuminate\Http\Response;
 use App\Models\Articulo;
 
+
 class ArticuloController extends Controller
 {
     /**
@@ -16,17 +17,20 @@ class ArticuloController extends Controller
      */
     public function index()
     {
+        $dat = DB::table('articulos_tbl')
+            ->leftJoin('categorias_tbl', 'articulos_tbl.categoria_id', '=', 'categorias_tbl.id')
+            ->leftJoin('marcas_tbl', 'articulos_tbl.marca_id', '=', 'marcas_tbl.id')
+            ->leftJoin('proveedores_tbl', 'articulos_tbl.proveedor_id', '=', 'proveedores_tbl.id')
+            ->leftJoin('ubicaciones_tbl', 'articulos_tbl.ubicacion_id', '=', 'ubicaciones_tbl.id')
+            ->leftJoin('status_tbl', 'articulos_tbl.status_id', '=', 'status_tbl.id')
+            ->leftJoin('tipos_tbl', 'articulos_tbl.tipo_id', '=', 'tipos_tbl.id')
+            ->select('articulos_tbl.nombre_articulo', 'articulos_tbl.cantidad_articulo', 'articulos_tbl.descripcion_articulo', 'categorias_tbl.nombre_categoria', 'marcas_tbl.nombre_marca', 'proveedores_tbl.nombre_proveedor', 'ubicaciones_tbl.rack', 'ubicaciones_tbl.traveseaño', 'status_tbl.nombre_status', 'tipos_tbl.name_tipo')->get();
+        return $dat;
 
-        return Articulo::all();
-        return DB::table('articulos_tbl')
-            ->join('categorias_tbl', 'articulos_tbl.categoria_id', '=', 'categorias_tbl.id')
-            ->join('marcas_tbl', 'articulos_tbl.marca_id', '=', 'marcas_tbl.id')
-            ->join('proveedores_tbl', 'articulos_tbl.proveedor_id', '=', 'proveedores_tbl.id')
-            ->join('ubicaciones_tbl', 'articulos_tbl.ubicacion_id', '=', 'ubicaciones_tbl.id')
-            ->join('status_tbl', 'articulos_tbl.status_id', '=', 'status_tbl.id')
-            ->join('tipos_tbl', 'articulos_tbl.tipo_id', '=', 'tipos_tbl.id')
-            ->select('articulos_tbl.nombre_articulo', 'articulos_tbl.cantidad_articulo', 'articulos_tbl.descripcion_articulo', 'marcas_tbl.nombre_marca', 'proveedores_tbl.nombre_proveedor', 'ubicaciones_tbl.rack', 'ubicaciones_tbl.traveseaño', 'status_tbl.nombre_status', 'tipos_tbl.name_tipo')->get();
+
+        //return Articulo::all();
     }
+
 
     /**
      * Store a newly created resource in storage.
