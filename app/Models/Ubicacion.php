@@ -20,7 +20,7 @@ class Ubicacion extends Model
      */
     protected $fillable = [
         'rack',
-        'traveseaño'
+        'travesaño'
 
     ];
 }

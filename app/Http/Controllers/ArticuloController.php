@@ -24,7 +24,7 @@ class ArticuloController extends Controller
             ->leftJoin('ubicaciones_tbl', 'articulos_tbl.ubicacion_id', '=', 'ubicaciones_tbl.id')
             ->leftJoin('status_tbl', 'articulos_tbl.status_id', '=', 'status_tbl.id')
             ->leftJoin('tipos_tbl', 'articulos_tbl.tipo_id', '=', 'tipos_tbl.id')
-            ->select('articulos_tbl.nombre_articulo', 'articulos_tbl.cantidad_articulo', 'articulos_tbl.descripcion_articulo', 'categorias_tbl.nombre_categoria', 'marcas_tbl.nombre_marca', 'proveedores_tbl.nombre_proveedor', 'ubicaciones_tbl.rack', 'ubicaciones_tbl.traveseaño', 'status_tbl.nombre_status', 'tipos_tbl.name_tipo')->get();
+            ->select('articulos_tbl.nombre_articulo', 'articulos_tbl.cantidad_articulo', 'articulos_tbl.descripcion_articulo', 'categorias_tbl.nombre_categoria', 'marcas_tbl.nombre_marca', 'proveedores_tbl.nombre_proveedor', 'ubicaciones_tbl.rack', 'ubicaciones_tbl.travesaño', 'status_tbl.nombre_status', 'tipos_tbl.name_tipo')->get();
         return $dat;
 
 

@@ -16,7 +16,7 @@ class CreateUbicacionsTable extends Migration
         Schema::create('ubicaciones_tbl', function (Blueprint $table) {
             $table->id();
             $table->string('rack');
-            $table->string('traveseaño');
+            $table->string('travesaño');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

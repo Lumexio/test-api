@@ -24,6 +24,12 @@ class Articulo extends Model
     protected $fillable = [
         'nombre_articulo',
         'cantidad_articulo',
-        'categoria_id'
+        'categoria_id',
+        'tipo_id',
+        'proveedor_id',
+        'marca_id',
+        'ubicacion_id',
+        'status_id',
+
     ];
 }
