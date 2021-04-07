@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ubicacion extends Model
+class Travesaño extends Model
 {
-    protected $table = 'ubicaciones_tbl';
+    protected $table = 'travesaño_tbl';
     protected $primaryKey = 'id';
     use HasFactory;
-
-
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +17,6 @@ class Ubicacion extends Model
      * @var array
      */
     protected $fillable = [
-        'rack',
-        'travesaño'
-
+        'nombre_travesaño',
     ];
 }

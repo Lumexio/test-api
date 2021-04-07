@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUbicacionsTable extends Migration
+class TravesañoTbl extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUbicacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ubicaciones_tbl', function (Blueprint $table) {
-            $table->id();
-            $table->string('rack');
-            $table->string('travesaño');
+        Schema::create('travesaño_tbl', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string("nombre_travesaño");
             $table->timestamps();
-            $table->engine = 'InnoDB';
         });
     }
 
@@ -29,6 +27,6 @@ class CreateUbicacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ubicaciones_tbl');
+        Schema::dropIfExists('travesaño_tbl');
     }
 }

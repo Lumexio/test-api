@@ -21,9 +21,10 @@ class CreateArticulosTable extends Migration
             $table->foreignId('categoria_id')->nullable('NULL')->references('id')->on('categorias_tbl');
             $table->foreignId('marca_id')->nullable('NULL')->references('id')->on('marcas_tbl');
             $table->foreignId('proveedor_id')->nullable('NULL')->references('id')->on('proveedores_tbl');
-            $table->foreignId('ubicacion_id')->nullable('NULL')->references('id')->on('ubicaciones_tbl');
-            $table->foreignId('status_id')->nullable('NULL')->references('id')->on('status_tbl');
+            $table->foreignId('rack_id')->nullable('NULL')->references('id')->on('rack_tbl');
             $table->foreignId('tipo_id')->nullable('NULL')->references('id')->on('tipos_tbl');
+            $table->foreignId('travesaño_id')->nullable('NULL')->references('id')->on('travesaño_tbl');
+            $table->foreignId('status_id')->nullable('NULL')->references('id')->on('status_tbl');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

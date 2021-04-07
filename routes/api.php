@@ -29,35 +29,36 @@ Mostrar un registro no */
 Route::resource('articulo', 'ArticuloController');
 
 
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('user', 'UserController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('rol', 'RolController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('marca', 'MarcaController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('categoria', 'CategoriaController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
-Route::resource('ubicacion', 'UbicacionController');
-/*Crear  no
+Route::resource('travesaño', 'TravesañoController');
+Route::resource('rack', 'RackController');
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('tipo', 'TipoController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('proveedor', 'ProveedorController');
-/*Crear  no
+/*Crear  si
 Eliminar no
 Mostrar un registro no */
 Route::resource('status', 'StatusController');

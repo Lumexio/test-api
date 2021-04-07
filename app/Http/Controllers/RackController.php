@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Ubicacion;
+use App\Models\Rack;
 
-class UbicacionController extends Controller
+class RackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UbicacionController extends Controller
      */
     public function index()
     {
-        return Ubicacion::all();
+        return Rack::all();
     }
 
     /**
@@ -25,7 +25,7 @@ class UbicacionController extends Controller
      */
     public function store(Request $request)
     {
-        return Ubicacion::create($request->all());
+        return Rack::create($request->all());
     }
 
     /**
@@ -36,7 +36,7 @@ class UbicacionController extends Controller
      */
     public function show($id)
     {
-        return Ubicacion::find($id);
+        return Rack::find($id);
     }
 
     /**
@@ -48,9 +48,9 @@ class UbicacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ubicacion = Ubicacion::find($id);
-        $ubicacion->update($request->all());
-        return $ubicacion;
+        $rack = Rack::find($id);
+        $rack->update($request->all());
+        return $rack;
     }
 
     /**
@@ -61,6 +61,6 @@ class UbicacionController extends Controller
      */
     public function destroy($id)
     {
-        return Ubicacion::destroy($id);
+        return Rack::destroy($id);
     }
 }
