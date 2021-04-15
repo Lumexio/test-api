@@ -21,6 +21,9 @@ class Articulo extends Model
      *
      * @var array
      */
+    /** 
+     *Aqui se especifica los campos de entrada o permitidos para llenar la tabla articulos con los campos de las tablas *foraneas
+     **/
     protected $fillable = [
         'nombre_articulo',
         'cantidad_articulo',
@@ -28,8 +31,8 @@ class Articulo extends Model
         'tipo_id',
         'proveedor_id',
         'marca_id',
-        'ubicacion_id',
+        'travesaño_id',
+        'rack_id',
         'status_id',
-
     ];
 }
