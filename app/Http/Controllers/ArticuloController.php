@@ -64,8 +64,11 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $articulo = Articulo::find($id);
+
         $articulo->update($request->all());
+
         return $articulo;
     }
 
