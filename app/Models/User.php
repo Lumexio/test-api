@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
+
 
 class User extends Authenticatable
 {
@@ -24,7 +26,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol_id',
+
     ];
+    /**
+     * Encripta la clave de usuario al ser creado
+     * @var array
+     * */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

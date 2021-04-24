@@ -10,4 +10,16 @@ class Rol extends Model
     protected $table = 'rols_tbl';
     protected $primaryKey = 'id';
     use HasFactory;
+
+
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name_rol',
+
+    ];
 }

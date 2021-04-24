@@ -15,11 +15,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+
+        DB::table('rols_tbl')->insert([
+            'name_rol' => 'Administrativo',
+        ]);
+        DB::table('rols_tbl')->insert([
+            'name_rol' => 'Empleado',
+        ]);
+
+        \App\Models\User::factory(10)->create();
+
         DB::table('users')->insert([
             'name' => 'francisco',
             'email' => 'a@a.com',
-            'password' => Hash::make('1234')
+            'password' => Hash::make('1234'),
+            'rol_id' => '1',
         ]);
     }
 }

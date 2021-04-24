@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+//use \Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -16,7 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        $dat = DB::table('users')->leftJoin('rols_tbl', 'users.rol_id', '=', 'rols_tbl.id')->select('users.id', 'users.name', 'users.email', 'users.password', 'rols_tbl.name_rol')->get();
+        return $dat;
     }
 
     /**
@@ -27,6 +30,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         return User::create($request->all());
     }
 

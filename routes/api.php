@@ -21,6 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', [UserController::class, 'login']);
+/*Crear  si
+Eliminar no
+Mostrar un registro no */
+Route::resource('user', 'UserController');
 
 
 /*Crear  si
@@ -29,10 +33,7 @@ Mostrar un registro no */
 Route::resource('articulo', 'ArticuloController');
 
 
-/*Crear  si
-Eliminar no
-Mostrar un registro no */
-Route::resource('user', 'UserController');
+
 /*Crear  si
 Eliminar no
 Mostrar un registro no */
