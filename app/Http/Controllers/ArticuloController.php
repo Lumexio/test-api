@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use \Illuminate\Http\Response;
 use App\Models\Articulo;
-
+use App\Events\articuloCreated;
 
 class ArticuloController extends Controller
 {
@@ -41,7 +41,9 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        return Articulo::create($request->all());
+        $articulo = Articulo::create($request->all());
+        articuloCreated::dispatch($articulo);
+        return $articulo;
     }
 
     /**

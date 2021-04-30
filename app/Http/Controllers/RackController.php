@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rack;
+use App\Events\rackCreated;
 
 class RackController extends Controller
 {
@@ -25,7 +26,9 @@ class RackController extends Controller
      */
     public function store(Request $request)
     {
-        return Rack::create($request->all());
+        $rack = Rack::create($request->all());
+        rackCreated::dispatch($rack);
+        return $rack;
     }
 
     /**

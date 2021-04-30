@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Proveedor;
+use App\Events\proveedorCreated;
 
 class ProveedorController extends Controller
 {
@@ -25,7 +26,9 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        return Proveedor::create($request->all());
+        $proveedor = Proveedor::create($request->all());
+        proveedorCreated::dispatch($proveedor);
+        return $proveedor;
     }
 
     /**

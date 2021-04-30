@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 //use \Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-
+use app\Events\userCreated;
 
 class UserController extends Controller
 {
@@ -30,8 +30,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        return User::create($request->all());
+        $user = User::create($request->all());
+        userCreated::dispatch($user);
+        return $user;
     }
 
     /**
@@ -56,6 +57,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
+        userCreated::dispatch($user);
         return $user;
     }
 
