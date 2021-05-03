@@ -53,6 +53,7 @@ class StatusController extends Controller
     {
         $status = Status::find($id);
         $status->update($request->all());
+        statusCreated::dispatch($status);
         return $status;
     }
 

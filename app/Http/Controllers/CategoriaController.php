@@ -58,8 +58,6 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         $categoria->update($request->all());
-
-
         return $categoria;
     }
 
