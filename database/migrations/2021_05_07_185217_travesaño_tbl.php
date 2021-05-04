@@ -13,9 +13,9 @@ class TravesañoTbl extends Migration
      */
     public function up()
     {
-        Schema::create('travesaño_tbl', function (Blueprint $table) {
+        Schema::create('travesano_tbl', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("nombre_travesaño");
+            $table->string("nombre_travesano");
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class TravesañoTbl extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('travesaño_tbl');
+        Schema::dropIfExists('travesano_tbl');
     }
 }

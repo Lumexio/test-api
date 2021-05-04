@@ -23,6 +23,28 @@ class DatabaseSeeder extends Seeder
         DB::table('rols_tbl')->insert([
             'name_rol' => 'Empleado',
         ]);
+        DB::table('status_tbl')->insert([
+            'nombre_status' => 'Disponible',
+        ]);
+        DB::table('status_tbl')->insert([
+            'nombre_status' => 'Agotado',
+        ]);
+        DB::table('status_tbl')->insert([
+            'nombre_status' => 'En uso',
+        ]);
+        DB::table('travesano_tbl')->insert([
+            'nombre_travesano' => '1',
+        ]);
+        DB::table('rack_tbl')->insert([
+            'nombre_rack' => 'A',
+        ]);
+        DB::table('travesano_tbl')->insert([
+            'nombre_travesano' => '2',
+        ]);
+        DB::table('rack_tbl')->insert([
+            'nombre_rack' => 'B',
+        ]);
+
 
         \App\Models\User::factory(10)->create();
 

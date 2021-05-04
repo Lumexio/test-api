@@ -21,10 +21,10 @@ class travesañoCreated implements ShouldBroadcast
      * @return void
      */
 
-    public $travesaños;
+    public $travesanos;
     public function __construct()
     {
-        $this->travesaños = Travesaño::all();
+        $this->travesanos = Travesaño::all();
     }
 
     /**
@@ -34,6 +34,6 @@ class travesañoCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('travesaños');
+        return new Channel('travesanos');
     }
 }

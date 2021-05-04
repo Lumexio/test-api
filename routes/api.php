@@ -49,7 +49,7 @@ Route::resource('categoria', 'CategoriaController');
 /*Crear  si
 Eliminar no
 Mostrar un registro no */
-Route::resource('travesaño', 'TravesañoController');
+Route::resource('travesano', 'TravesañoController');
 Route::resource('rack', 'RackController');
 /*Crear  si
 Eliminar no

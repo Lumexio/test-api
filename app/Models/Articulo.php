@@ -31,7 +31,7 @@ class Articulo extends Model
         'tipo_id',
         'proveedor_id',
         'marca_id',
-        'travesaño_id',
+        'travesano_id',
         'rack_id',
         'status_id',
     ];
