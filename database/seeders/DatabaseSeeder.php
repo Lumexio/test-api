@@ -54,5 +54,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('1234'),
             'rol_id' => '1',
         ]);
+        DB::table('users')->insert([
+            'name' => 'darkfrancisco',
+            'email' => 'b@b.com',
+            'password' => Hash::make('1234'),
+            'rol_id' => '2',
+        ]);
     }
 }
