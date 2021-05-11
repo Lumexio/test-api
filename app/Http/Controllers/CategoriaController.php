@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Events\categoriaCreated;
+
 
 class CategoriaController extends Controller
 {
@@ -14,6 +16,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
+
         return Categoria::all();
     }
 
@@ -25,7 +28,11 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        return Categoria::create($request->all());
+
+        $categoria = Categoria::create($request->all());
+        //event(new categoriaCreated());
+        categoriaCreated::dispatch($categoria);
+        return $categoria;
     }
 
     /**
@@ -36,6 +43,7 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
+
         return Categoria::find($id);
     }
 
@@ -61,6 +69,7 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
+
         return Categoria::destroy($id);
     }
 }

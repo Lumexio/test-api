@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tipo;
+use App\Events\tipoCreated;
 
 class TipoController extends Controller
 {
@@ -25,7 +26,9 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        return Tipo::create($request->all());
+        $tipo = Tipo::create($request->all());
+        tipoCreated::dispatch($tipo);
+        return $tipo;
     }
 
     /**

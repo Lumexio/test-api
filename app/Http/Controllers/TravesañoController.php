@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Travesaño;
+use App\events\travesañoCreated;
 
 class TravesañoController extends Controller
 {
@@ -25,7 +26,9 @@ class TravesañoController extends Controller
      */
     public function store(Request $request)
     {
-        return Travesaño::create($request->all());
+        $travesaño = Travesaño::create($request->all());
+        travesañoCreated::dispatch($travesaño);
+        return $travesaño;
     }
 
     /**

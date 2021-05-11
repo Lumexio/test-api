@@ -16,7 +16,7 @@ class RackTbl extends Migration
         Schema::create('rack_tbl', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("nombre_rack");
-            //$table->foreignId('travesaño_id')->nullable('NULL')->references('id')->on('travesaño_tbl');
+            //$table->foreignId('travesano_id')->nullable('NULL')->references('id')->on('travesano_tbl');
             $table->timestamps();
         });
     }

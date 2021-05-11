@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marca;
+use App\Events\articuloCreated;
+use App\Events\marcaCreated;
 
 class MarcaController extends Controller
 {
@@ -25,7 +27,9 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        return Marca::create($request->all());
+        $marca = Marca::create($request->all());
+        marcaCreated::dispatch($marca);
+        return $marca;
     }
 
     /**
