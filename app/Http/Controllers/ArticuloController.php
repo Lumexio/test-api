@@ -41,9 +41,18 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        $articulo = Articulo::create($request->all());
-        articuloCreated::dispatch($articulo);
-        return $articulo;
+
+        if (Articulo::where('nombre_articulo', '=', $request->get('nombre_articulo'))->exists()) {
+
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+
+            $articulo = Articulo::create($request->all());
+            articuloCreated::dispatch($articulo);
+            return $articulo;
+        }
     }
 
     /**
