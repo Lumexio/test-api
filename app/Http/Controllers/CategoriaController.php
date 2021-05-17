@@ -28,11 +28,15 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-
-        $categoria = Categoria::create($request->all());
-        //event(new categoriaCreated());
-        categoriaCreated::dispatch($categoria);
-        return $categoria;
+        if (Categoria::where('nombre_categoria', '=', $request->get('nombre_categoria'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $categoria = Categoria::create($request->all());
+            categoriaCreated::dispatch($categoria);
+            return $categoria;
+        }
     }
 
     /**

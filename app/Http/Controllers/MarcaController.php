@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marca;
-use App\Events\articuloCreated;
+
 use App\Events\marcaCreated;
 
 class MarcaController extends Controller
@@ -27,9 +27,15 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        $marca = Marca::create($request->all());
-        marcaCreated::dispatch($marca);
-        return $marca;
+        if (Marca::where('nombre_marca', '=', $request->get('nombre_marca'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $marca = Marca::create($request->all());
+            marcaCreated::dispatch($marca);
+            return $marca;
+        }
     }
 
     /**

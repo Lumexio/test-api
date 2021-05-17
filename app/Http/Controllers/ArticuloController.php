@@ -38,17 +38,17 @@ class ArticuloController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * 
+     * dentro hay una validacion para saber si el nombre del articulo ya exite en los registros.
      */
     public function store(Request $request)
     {
 
         if (Articulo::where('nombre_articulo', '=', $request->get('nombre_articulo'))->exists()) {
-
             return response([
                 'message' => ['Uno de los parametros ya exite.']
             ], 409);
         } else {
-
             $articulo = Articulo::create($request->all());
             articuloCreated::dispatch($articulo);
             return $articulo;

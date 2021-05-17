@@ -26,9 +26,15 @@ class RackController extends Controller
      */
     public function store(Request $request)
     {
-        $rack = Rack::create($request->all());
-        rackCreated::dispatch($rack);
-        return $rack;
+        if (Rack::where('nombre_rack', '=', $request->get('nombre_rack'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $rack = Rack::create($request->all());
+            rackCreated::dispatch($rack);
+            return $rack;
+        }
     }
 
     /**

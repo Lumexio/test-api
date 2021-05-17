@@ -26,9 +26,15 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        $proveedor = Proveedor::create($request->all());
-        proveedorCreated::dispatch($proveedor);
-        return $proveedor;
+        if (Proveedor::where('nombre_proveedor', '=', $request->get('nombre_proveedor'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $proveedor = Proveedor::create($request->all());
+            proveedorCreated::dispatch($proveedor);
+            return $proveedor;
+        }
     }
 
     /**
@@ -64,6 +70,7 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
-        return Proveedor::destroy($id);
+        $proveedor = Proveedor::destroy($id);
+        return $proveedor;
     }
 }

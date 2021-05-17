@@ -26,9 +26,15 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        $tipo = Tipo::create($request->all());
-        tipoCreated::dispatch($tipo);
-        return $tipo;
+        if (Tipo::where('name_tipo', '=', $request->get('name_tipo'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $tipo = Tipo::create($request->all());
+            tipoCreated::dispatch($tipo);
+            return $tipo;
+        }
     }
 
     /**

@@ -15,7 +15,8 @@ class TravesañoController extends Controller
      */
     public function index()
     {
-        return Travesaño::all();
+        $travesaño =  Travesaño::all();
+        return $travesaño;
     }
 
     /**
@@ -26,9 +27,15 @@ class TravesañoController extends Controller
      */
     public function store(Request $request)
     {
-        $travesaño = Travesaño::create($request->all());
-        travesañoCreated::dispatch($travesaño);
-        return $travesaño;
+        if (Travesaño::where('nombre_travesano', '=', $request->get('nombre_travesano'))->exists()) {
+            return response([
+                'message' => ['Uno de los parametros ya exite.']
+            ], 409);
+        } else {
+            $travesaño = Travesaño::create($request->all());
+            travesañoCreated::dispatch($travesaño);
+            return $travesaño;
+        }
     }
 
     /**
@@ -64,6 +71,7 @@ class TravesañoController extends Controller
      */
     public function destroy($id)
     {
-        return Travesaño::destroy($id);
+        $travesaño = Travesaño::destroy($id);
+        return $travesaño;
     }
 }
