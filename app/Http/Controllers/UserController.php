@@ -71,13 +71,15 @@ class UserController extends Controller
     {
         return User::destroy($id);
     }
+
+
     function login(Request $request)
     {
         $user = User::where('email', $request->email)->first();
         // print_r($data);
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response([
-                'message' => ['These credentials do not match our records.']
+                'message' => ['Las credentials no concuerdan con ningun registro.']
             ], 404);
         }
 
