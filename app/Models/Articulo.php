@@ -22,7 +22,7 @@ class Articulo extends Model
      * @var array
      */
     /** 
-     *Aqui se especifica los campos de entrada o permitidos para llenar la tabla articulos con los campos de las tablas *foraneas
+     *Aqui se especifica los campos de entrada o permitidos para llenar la tabla artículos con los campos de las tablas *foraneas
      **/
     protected $fillable = [
         'nombre_articulo',
